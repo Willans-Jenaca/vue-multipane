@@ -10,7 +10,7 @@ export default {
   name: 'Multipane',
   input: 'src/index.js',
   output: {
-    file: 'dist/vue-multipane.esm.js',
+    file: 'dist/vue-multipane-pointerevents.esm.js',
     format: 'es',
   },
   sourcemaps: true,

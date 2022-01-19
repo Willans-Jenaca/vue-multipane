@@ -8,7 +8,7 @@ export default {
   name: 'Multipane',
   input: 'src/index.js',
   output: {
-    file: 'dist/vue-multipane.js',
+    file: 'dist/vue-multipane-pointerevents.js',
     format: 'umd',
   },
   sourcemaps: true,

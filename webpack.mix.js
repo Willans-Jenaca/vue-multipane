@@ -20,8 +20,8 @@ if (argv.env.entry=='src') {
     .js(
       'src/index.js',
       mix.inProduction() ?
-          'dist/vue-multipane.min.js' :
-          'dist/vue-multipane.js'
+          'dist/vue-multipane-pointerevents.min.js' :
+          'dist/vue-multipane-pointerevents.js'
     )
     .extract([
       'vue'
