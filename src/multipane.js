@@ -36,7 +36,7 @@ export default {
   },
 
   methods: {
-    onMouseDown({ target: resizer, pageX: initialPageX, pageY: initialPageY }) {
+    onPointerDown({ target: resizer, pageX: initialPageX, pageY: initialPageY }) {
       if (resizer.className && resizer.className.match('multipane-resizer')) {
         let self = this;
         let { $el: container, layout } = self;
@@ -80,7 +80,7 @@ export default {
         // Trigger paneResizeStart event
         self.$emit('paneResizeStart', pane, resizer, size);
 
-        const onMouseMove = function({ pageX, pageY }) {
+        const onPointerMove = function({ pageX, pageY }) {
           size =
             layout == LAYOUT_VERTICAL
               ? resize(initialPaneWidth, pageX - initialPageX)
@@ -89,7 +89,7 @@ export default {
           self.$emit('paneResize', pane, resizer, size);
         };
 
-        const onMouseUp = function() {
+        const onPointerUp = function() {
           // Run resize one more time to set computed width/height.
           size =
             layout == LAYOUT_VERTICAL
@@ -99,14 +99,14 @@ export default {
           // This removes is-resizing class to container
           self.isResizing = false;
 
-          removeEventListener('mousemove', onMouseMove);
-          removeEventListener('mouseup', onMouseUp);
+          removeEventListener('pointermove', onPointerMove);
+          removeEventListener('pointerup', onPointerUp);
 
           self.$emit('paneResizeStop', pane, resizer, size);
         };
 
-        addEventListener('mousemove', onMouseMove);
-        addEventListener('mouseup', onMouseUp);
+        addEventListener('pointermove', onPointerMove);
+        addEventListener('pointerup', onPointerUp);
       }
     },
   },

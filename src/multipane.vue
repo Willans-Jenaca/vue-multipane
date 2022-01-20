@@ -1,5 +1,9 @@
 <template>
-  <div :class="classnames" :style="{ cursor, userSelect }" @mousedown="onMouseDown">
+  <div
+    :class="classnames"
+    :style="{ cursor, userSelect }"
+    @pointerdown="onPointerDown"
+  >
     <slot></slot>
   </div>
 </template>
@@ -8,15 +12,15 @@
 
 <style lang="scss">
 .multipane {
-    display: flex;
+  display: flex;
 
-    &.layout-h {
-        flex-direction: column;
-    }
+  &.layout-h {
+    flex-direction: column;
+  }
 
-    &.layout-v {
-        flex-direction: row;
-    }
+  &.layout-v {
+    flex-direction: row;
+  }
 }
 
 .multipane > div {
